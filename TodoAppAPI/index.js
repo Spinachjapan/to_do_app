@@ -1,14 +1,16 @@
+require('dotenv').config();
+
 const express = require("express");
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded())
 
-//database connection
-const host = '<-- host -->';
-const user = '<-- username -->';
-const password = '<-- password -->';
-const database = '<-- database name -->';
+const host = process.env.mysql_host;
+const user = process.env.mysql_user;
+const password = process.env.mysql_password;
+const database = process.env.mysql_database;
+
 
 
   app.get("/", (req, res) => {
